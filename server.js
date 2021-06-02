@@ -5,7 +5,7 @@ const database = require("./db/db.json");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-require("/routes/routes.js")(app)
+require(".routes")(app)
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
