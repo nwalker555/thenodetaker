@@ -6,11 +6,11 @@ console.log(database);
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-require("./routes/routes")(app)
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+require("./routes/routes")(app)
 
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/index.html"));
