@@ -2,14 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const express = require ('express');
 const database = require("./db/db.json");
+console.log(database);
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-require("./Routes/routes")(app)
+require("./routes/routes")(app)
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/index.html"));
